@@ -1,0 +1,157 @@
+ :root {
+    --blush:    #fff2f1;
+    --rose:     #d99da8;
+    --bark:     #4d3c38;
+    --deep:     #342a24;
+    --ink:      #271e1a;
+    --cream:    #fffdfb;
+    --stone:    #ece4e1;
+    --muted:    #7d7571;
+    --white:    #ffffff;
+    --serif:    'Cormorant Garamond', Georgia, serif;
+    --cursive:  'Great Vibes', cursive;
+    --cursive1: 'Allura', cursive;
+    --sans:     'DM Sans', system-ui, sans-serif;
+  }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-header {
+  background: #4d3c38;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+input {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  width: 250px;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  width: 250px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+.card-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #555;
+}
+.card-button {
+    background: #4d3c38;
+    color: white;
+    padding: 10px 16px;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Main container */
+.home_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+.description {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 16px;
+    line-height: 1.8;
+    font-size: 18px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Highlighted text */
+.description strong {
+    color: #ffd369;
+}
+.home_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Circle row under text */
+.circle_wrapper {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Circles */
+.circle_container1,
+.circle_container2 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.circle_container1:hover,
+.circle_container2:hover {
+    transform: scale(1.08);
+}
+
+/* Text inside circles */
+.circle_container1 a,
+.circle_container2 a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
