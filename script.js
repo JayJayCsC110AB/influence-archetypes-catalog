@@ -106,22 +106,19 @@ document.getElementById("search").addEventListener("input", function () {
   const query = this.value.toLowerCase().trim();
   if (query === "") {
     renderCards(archetypes);
-  } else {
-    const found = archetypeMap[query];
-    if (found) {
-      renderCards([found]);
-    } else {
-      renderCards([]);
-    }
+    return;
   }
-   if (query.length < 4) {
+  const found = archetypeMap[query];
+  if (found) {
+    renderCards([found]);
+    return;
+  }
+  if (query.length < 4) {
     renderCards(archetypes);
     return;
   }
-   // 2. fallback: partial match (THIS is what you want)
   const results = archetypes.filter(a =>
     a.modern && a.modern.toLowerCase().includes(query)
   );
-
   renderCards(results);
 });
