@@ -99,26 +99,53 @@ function renderCards(list) {
     catalog.appendChild(card);
   });
 }
-//Search bar Initialization
-document.addEventListener("DOMContentLoaded", () => renderCards(archetypes));
+function performSearch(query) {
+  if (document.getElementById("catalog")) {
+    if (query === "") {
+      renderCards(archetypes);
+      return;
+    }
+    const found = archetypeMap[query];
+    if (found) {
+      renderCards([found]);
+      return;
+    }
+    if (query.length < 4) {
+      renderCards(archetypes);
+      return;
+    }
+    const results = archetypes.filter(a =>
+      a.modern && a.modern.toLowerCase().includes(query)
+    );
+    renderCards(results);
+  } else {
+    if (query) {
+      window.location.href = 'archetype_categories.html?search=' + encodeURIComponent(query);
+    }
+  }
+}
 
-document.getElementById("search").addEventListener("input", function () {
-  const query = this.value.toLowerCase().trim();
-  if (query === "") {
+//Search bar Initialization
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("catalog")) {
     renderCards(archetypes);
-    return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    if (searchQuery) {
+      document.getElementById("search").value = searchQuery;
+      performSearch(searchQuery.toLowerCase().trim());
+    }
   }
-  const found = archetypeMap[query];
-  if (found) {
-    renderCards([found]);
-    return;
-  }
-  if (query.length < 4) {
-    renderCards(archetypes);
-    return;
-  }
-  const results = archetypes.filter(a =>
-    a.modern && a.modern.toLowerCase().includes(query)
-  );
-  renderCards(results);
 });
+
+if (document.getElementById("catalog")) {
+  document.getElementById("search").addEventListener("input", function () {
+    performSearch(this.value.toLowerCase().trim());
+  });
+} else {
+  document.getElementById("search").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      performSearch(this.value.toLowerCase().trim());
+    }
+  });
+}
