@@ -21,15 +21,13 @@ const archetypes = [
     name: "The Philosopher",
     era1600s: "René Descartes",
     modern: "Jordan Peterson",
-    current: "Sense-Maker",
     image: "https://cdn.britannica.com/96/142296-050-EF68BC38/Aristotle-types-reasoning.jpg",
     html: "the-philosopher.html"
   },
   {
     name: "The Trendsetter",
-    era1600s: "Louis XIV",
+    era1600s: "Marie Antoinette",
     modern: "Zendaya",
-    current: "Viral Personality",
     image: "https://upwardtrendmanagementservices.com/wp-content/uploads/2018/05/trendsetter400x300.jpg",
     html: "the_trendsetter.html"
   },
@@ -37,23 +35,20 @@ const archetypes = [
     name: "The Storyteller",
     era1600s: "William Shakespeare",
     modern: "MrBeast",
-    current: "Narrative Creator",
     image: "https://morningbrew.com/cdn-cgi/image/width=412,height=275,quality=80,format=auto,dpr=2.625/https://storage.morningbrew.com/image/2025-12-15/image-087245a370915159d5c3ddc37efa8d47cddc54cc-1500x1000-png/storytellerillo.png",
     html: "the-storyteller.html"
   },
   {
     name: "The Jester",
-    era1600s: "Null",
+    era1600s: "Triboulet",
     modern: "IShowSpeed",
-    current: "Null",
     image: "https://www.discoverbritain.com/_gatsby/file/bd1b8f924d70bbdc370cca1b1058331c/16th%20century%20french%20engraving%20of%20a%20jester.png",
     html: "the_jester.html",
   },
   {
     name: "The Orator",
-    era1600s: "Null",
+    era1600s: "Socrates",
     modern: "Charlie Kirk",
-    current: "Null",
     image: "https://www.meisterdrucke.uk/kunstwerke/1260px/Unknown_Artist_-_Roman_political_system_The_Senate_-_%28MeisterDrucke-932378%29.jpg",
     html: "the_orator.html",
   },
@@ -68,7 +63,7 @@ const archetypes = [
 
 const archetypeMap = {};
 archetypes.forEach(archetype => {
-  [archetype.name, archetype.era1600s, archetype.modern, archetype.current].forEach(field => {
+  [archetype.name, archetype.era1600s, archetype.modern].forEach(field => {
     if (field && field !== "Null") {
       archetypeMap[field.toLowerCase()] = archetype;
     }
