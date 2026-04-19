@@ -54,12 +54,13 @@ const archetypes = [
   },
   {
     name: "The Builder",
-    era1600s: "Null",
+    era1600s: "Leonardo Da Vinci",
     modern: "Mark Rober",
     image: "https://jamesngart.com/img/art/Imperial-Inventor1.jpg",
     html: "the_builder.html"
   }
 ];
+//Initializing home browser cards
 
 const archetypeMap = {};
 archetypes.forEach(archetype => {
@@ -94,6 +95,8 @@ function renderCards(list) {
     catalog.appendChild(card);
   });
 }
+
+//Search bar Initialization
 function performSearch(query) {
   if (document.getElementById("catalog")) {
     if (query === "") {
@@ -109,7 +112,7 @@ function performSearch(query) {
       renderCards(archetypes);
       return;
     }
-    const results = archetypes.filter(a =>
+     const results = archetypes.filter(a =>
       a.modern && a.modern.toLowerCase().includes(query)
     );
     renderCards(results);
@@ -120,7 +123,7 @@ function performSearch(query) {
   }
 }
 
-//Search bar Initialization
+
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("catalog")) {
     renderCards(archetypes);
@@ -132,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
 
 if (document.getElementById("catalog")) {
   document.getElementById("search").addEventListener("input", function () {
